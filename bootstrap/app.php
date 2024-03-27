@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\CheckAgeMiddleware;
+use App\Http\Middleware\LogHttpRequests;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -18,6 +19,14 @@ return Application::configure(basePath: dirname(__DIR__))
             'checkAgeMiddleware' => CheckAgeMiddleware::class,
             //% Other middlewares...
         ]);
+
+        //! Global Middleware executes on EVERY HTTP request
+        $middleware->web(append: [
+            LogHttpRequests::class,
+
+            //% Other middlewares...
+        ]);
+
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
