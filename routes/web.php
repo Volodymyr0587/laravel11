@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,5 +35,8 @@ Route::middleware([
 
 // Enums test
 Route::get('products', [ProductController::class, 'index']);
+
+// Calendar
+Route::get('/calendar', [EventController::class, 'calendar']);
 
 
