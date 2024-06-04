@@ -38,5 +38,7 @@ Route::get('products', [ProductController::class, 'index']);
 
 // Calendar
 Route::get('/calendar', [EventController::class, 'calendar']);
+// Single event
+Route::get('/event/{event}', [EventController::class, 'show'])->name('event.show');
 
 

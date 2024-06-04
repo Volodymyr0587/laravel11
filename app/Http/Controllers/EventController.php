@@ -17,9 +17,15 @@ class EventController extends Controller
             $calendarEvents[] = [
                 'title' => $event->name . ' ('.$event->user->name.')',
                 'start' => $event->event_time,
+                'url' => route('event.show', $event),
             ];
         }
 
         return view('events.index', compact('calendarEvents'));
+    }
+
+    public function show(Event $event)
+    {
+        return $event;
     }
 }
