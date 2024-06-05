@@ -10,3 +10,15 @@ if (! function_exists('generateRandomString')) {
         return $randomString;
     }
 }
+
+if (! function_exists('fake_person_data')) {
+    function fake_person_data() {
+        return [
+            'firstName' => fake()->firstName,
+            'lastName' => fake()->lastName,
+            'birthDay' => fake()->date,
+            'address' => fake()->address,
+            'job' => fake()->jobTitle,
+        ];
+    }
+}

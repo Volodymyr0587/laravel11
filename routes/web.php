@@ -23,6 +23,11 @@ Route::get('/generate-random-string', function() {
     return generateRandomString(25);
 });
 
+// Fake Person Data
+Route::get('/fake-person-data', function () {
+    return fake_person_data();
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
