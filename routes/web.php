@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DiceGameController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProductController;
 use App\Models\Course;
@@ -60,3 +61,8 @@ Route::get('/courses', function () {
         echo $course->title;
     }
 });
+
+
+// Dice Game
+Route::get('/dice-game', [DiceGameController::class, 'index']);
+Route::post('/roll', [DiceGameController::class, 'roll'])->name('roll');
