@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ProductController;
+use App\Models\Course;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -47,3 +49,14 @@ Route::get('/calendar', [EventController::class, 'calendar']);
 Route::get('/event/{event}', [EventController::class, 'show'])->name('event.show');
 
 
+// User Courses
+Route::get('/courses', function () {
+    $user = User::find(1);
+    // $course = Course::find(1);
+    // $user->courses()->attach($course->id);
+    $courses = $user->courses;
+
+    foreach ($courses as $course) {
+        echo $course->title;
+    }
+});
