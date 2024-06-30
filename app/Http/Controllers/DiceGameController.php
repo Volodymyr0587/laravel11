@@ -24,7 +24,11 @@ class DiceGameController extends Controller
             return 'storage/dice/dice-six-faces-' . $roll . '.png';
         }, $diceRolls);
 
-        return view('dice-game.index', ['diceRolls' => $diceRolls, 'diceImages' => $diceImages, 'score' => $score]);
+        return view('dice-game.index', [
+            'diceRolls' => $diceRolls,
+            'diceImages' => $diceImages,
+            'score' => $score,
+        ]);
     }
 
      private function calculateScore($diceRolls)
